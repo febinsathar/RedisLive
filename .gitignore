@@ -36,3 +36,4 @@ src/redis-live.conf
 # Vim
 *.sw[po]
 venv
+*.sqlite

@@ -12,10 +12,10 @@ def monitor():
 	
 	while True:
 		x=1
-		redisClient.set("Key:" + `x`, x)
-		redisClient.set("KeyYU:" + `x`, x)
-		redisClient.set("Key:" + `x`, x)
-		redisClient.set("KeyYU:" + `x`, x)
+		redisClient.set("Key:" + repr(x), x)
+		redisClient.set("KeyYU:" + repr(x), x)
+		redisClient.set("Key:" + repr(x), x)
+		redisClient.set("KeyYU:" + repr(x), x)
 
 if __name__ == '__main__':
 	monitor()

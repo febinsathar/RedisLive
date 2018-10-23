@@ -4,6 +4,8 @@ import tornado.ioloop
 import tornado.options
 from tornado.options import define, options
 import tornado.web
+from tornado import web
+
 
 from api.controller.BaseStaticFileHandler import BaseStaticFileHandler
 
@@ -27,7 +29,7 @@ if __name__ == "__main__":
     (r"/api/commands", CommandsController),
     (r"/api/topcommands", TopCommandsController),
     (r"/api/topkeys", TopKeysController),
-    (r"/(.*)", BaseStaticFileHandler, {"path": "www"})
+    (r"/(.*)", web.StaticFileHandler, {"path": "www", "default_filename": "index.html"})
     ]
 
     server_settings = {'debug': options.debug}

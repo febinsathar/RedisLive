@@ -9,7 +9,10 @@ class RedisStatsProvider(object):
 
     def __init__(self):
         stats = settings.get_sqlite_stats_store()
-        self.location = stats.get('path', 'db/redislive.sqlite')
+        if(stats!=""):
+            self.location = stats.get('path', 'db/redislive.sqlite')
+        else:
+            self.location ='db/redislive.sqlite'
         self.conn = sqlite3.connect(self.location)
         self.retries = 10
 
